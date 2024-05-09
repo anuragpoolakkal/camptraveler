@@ -26,7 +26,24 @@ export const Navbar = () => {
 				<Button type="button" title="Login" icon="/user.svg" variant="btn_dark_green" />
 			</div>
 
-			<Image src="menu.svg" alt="menu" width={32} height={32} className="inline-block cursor-pointer lg:hidden" />
+			<details className="dropdown dropdown-end lg:hidden">
+				<summary tabIndex={0} role="button" className="btn m-1">
+					<Image
+						src="menu.svg"
+						alt="menu"
+						width={32}
+						height={32}
+						className="inline-block cursor-pointer lg:hidden"
+					/>
+				</summary>
+				<ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 border">
+					{NAV_LINKS.map((link) => (
+						<li key={link.key}>
+							<a>{link.label}</a>
+						</li>
+					))}
+				</ul>
+			</details>
 		</nav>
 	);
 };
